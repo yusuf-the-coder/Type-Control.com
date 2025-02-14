@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Type-Control.css">
+    <link rel="icon" type="image/x-icon" href="Type-Control.png">
+    <title>Type-Control</title>
+    <!--Type-Control version beta 0.1v-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6954508461110288"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>
+        <img src="Type-Control.png" alt="Type-Control" class="Logo">
+        <span>Type-Control. est.2025.</span>
+    </h1>
+    
+    <h3>Are you banned or not.</h3>
+    <p id="status">Checking your access...</p>
+
+    <a href="privacypolicy.txt">Privacy Policy.</a>
+
+    <h1>About us.</h1>
+
+    <h2>We started works in 1st of February 2025 and released in 14 of February 2025. We started ideas in late 2024.</h2>
+
+    <h2>Just 2 people made this.</h2>
+
+    <h2>Our current version 
+    is <span class="vn">beta 0.1v</span>
+    </h2>
+
+    <h1>Download package beta <span class="vn">0.1v.</span></h1>
+
+    <a href="Application.zip" download>
+        <button>Download Folder</button>
+    </a>
+    <h1>Want to get updated?</h1>
+
+    <h2>Then please enter your information here.</h2>
+
+    <form onsubmit="myfunc(event)" class="Email/referals">
+        <div>
+            <label>Email:</label>
+            <input type="text" required id="Email">
+        </div>
+        <div>
+            <label>What you want to be called:</label>
+            <input type="text" required id="name">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="copyright">
+    <h6>©Type-Control 2025.</h6>
+    <h6>All rights reserved.</h6>
+    <h6>If you have any problems with copyright please contact us with Email.Make sure the subject is about copyright.</h6>
+    </div>
+    <!--Javascript source-->
+    <script src="Type-Control.js"></script>
+
+    <!--Ban system code-->
+    <script>
+        const bannedEmails = ["banned@example.com", "spam@email.com"]; // Add banned emails here
+    
+        function myfunc(event) {
+            event.preventDefault();
+    
+            var email = document.getElementById("Email").value;
+            var name = document.getElementById("name").value;
+    
+            // Check if the email is in the banned list
+            if (bannedEmails.includes(email)) {
+                alert("This email is banned from submitting.");
+                return;
+            }
+    
+            let data = JSON.parse(localStorage.getItem("referrals")) || [];
+            data.push({ email, name });
+            localStorage.setItem("referrals", JSON.stringify(data));
+    
+            // Redirect to viewer page
+            window.location.href = "viewer.html";
+        }
+    </script>
+    
+</body>
+</html>

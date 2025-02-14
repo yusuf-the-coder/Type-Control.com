@@ -1,0 +1,71 @@
+**Privacy Policy**
+
+**Effective Date:** February 14, 2025
+
+**1. Introduction**  
+This Privacy Policy explains how we collect, use, and protect your data when you use our website, Type-Control. By accessing our site, you agree to this policy.
+
+**2. Information We Collect**  
+- **LocalStorage Data**: We store user-provided emails and names in your browser's localStorage for updates and referral tracking.
+- **IP Address**: We collect your IP address for security purposes, including banning users who violate our terms.
+- **Download Information**: If you download the ZIP folder, we may log the download activity for security monitoring.
+- **Banned Emails**: We maintain a list of banned emails to prevent misuse.
+
+**3. How We Use Your Data**  
+- To personalize your experience by saving preferences.
+- To maintain website security by banning malicious users.
+- To send updates if you have subscribed.
+- To monitor and improve our services.
+
+**4. Data Storage and Security**  
+- LocalStorage data is stored on your browser and not on our servers.
+- IP addresses and email bans are securely logged and only used for security purposes.
+- We do not share or sell your data to third parties.
+
+**5. User Rights**  
+- You may clear localStorage data from your browser at any time.
+- If you believe your IP address or email has been wrongfully banned, you can contact us for review.
+- You can request deletion of your stored email data by contacting us.
+
+**6. Changes to This Policy**  
+We may update this Privacy Policy at any time. Continued use of our site means you accept any changes.
+
+---
+
+**Terms of Service (ToS)**
+
+**Effective Date:** February 14, 2025
+
+**1. Acceptance of Terms**  
+By using this website, you agree to these Terms of Service. If you do not agree, please do not use our site.
+
+**2. User Responsibilities**  
+- You must not use the site for illegal or harmful activities.
+- You must not attempt to bypass bans or security measures.
+- You are responsible for your own data stored in localStorage.
+- You agree to provide accurate email information when subscribing to updates.
+
+**3. IP Address Collection & Bans**  
+- We collect and log IP addresses to prevent abuse.
+- Users who violate these terms may be permanently banned.
+- Bans are at our discretion and are non-negotiable.
+
+**4. Email & Referral System**  
+- By submitting your email, you consent to being contacted for updates.
+- We do not share your email with third parties.
+- Banned emails will not be able to submit forms.
+
+**5. ZIP Folder Downloads**  
+- By downloading any ZIP file from our website, you agree not to modify, distribute, or misuse its contents.
+- We are not responsible for any issues resulting from downloaded files (e.g., corruption, incompatibility).
+
+**6. Limitation of Liability**  
+- We are not responsible for any damages, data loss, or security issues arising from the use of our site.
+- Use of our services is at your own risk.
+
+**7. Changes to the Terms**  
+We reserve the right to modify these Terms at any time. Continued use of the site indicates acceptance of any updates.
+
+**8. Contact Information**  
+For questions regarding our Privacy Policy or Terms of Service, please contact us at [Insert Contact Info].
+

@@ -1,0 +1,122 @@
+/* Reset some basic styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.apptitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #0073e6;
+}
+
+/* Form and Buttons */
+.form-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#dynamicForm input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#dynamicForm button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dynamicForm button:hover {
+    background-color: #005bb5;
+}
+
+/* Table Styles (make it look like a spreadsheet) */
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #555;
+    font-weight: bold;
+}
+
+table td {
+    background-color: #fafafa;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Selector Styles */
+h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+select, input[type="color"] {
+    padding: 8px;
+    font-size: 1rem;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Add some spacing around the page */
+body {
+    padding: 40px;
+}
+
+/* Remove button styles */
+.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="application.css">
+    <title>DATA manager</title>
+</head>
+<body>
+
+    <h1 class="apptitle">DATA Manager</h1>
+
+    <div class="form-container">
+        <form id="dynamicForm">
+            <input type="text" id="DATA" name="DATA" placeholder="Insert DATA"/>
+            <button type="button" onclick="addData()">Add Data</button>
+            <button type="button" onclick="saveData()">Save Data</button>
+        </form>
+    </div>
+
+    <h2>Data Table</h2>
+    <div class="table-container">
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>DATA</th>
+                    <th>Actions</th> <!-- Added Actions column for removing data -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Change Text Style</h3>
+    <!-- Text Size Selector -->
+    <label for="textSize">Text Size: </label>
+    <select id="textSize" onchange="changeTextStyle()">
+        <option value="16px">Small</option>
+        <option value="20px">Medium</option>
+        <option value="24px">Large</option>
+    </select>
+
+    <!-- Text Color Selector -->
+    <label for="textColor">Text Color: </label>
+    <input type="color" id="textColor" onchange="changeTextStyle()"/>
+
+    <h4>*warning:Save data before changing color or text size.</h4>
+    
+    <h6>©Type-Control 2025.</h6>
+    <h6>All rights reserved.</h6>
+
+    <!-- JavaScript -->
+    <script src="application.js"></script>
+
+</body>
+</html>

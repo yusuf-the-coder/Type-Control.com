@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored Referrals</title>
+</head>
+<body>
+
+    <h2>Stored Referrals</h2>
+    <ul id="dataList"></ul>
+
+    <script>
+        function displayData() {
+            var dataList = document.getElementById("dataList");
+            dataList.innerHTML = ""; // Clear previous list
+
+            let data = JSON.parse(localStorage.getItem("referrals")) || [];
+
+            data.forEach(entry => {
+                var listItem = document.createElement("li");
+                listItem.textContent = entry.email + " - " + entry.name;
+                dataList.appendChild(listItem);
+            });
+        }
+
+        // Load data when the page loads
+        window.onload = displayData;
+    </script>
+
+</body>
+</html>

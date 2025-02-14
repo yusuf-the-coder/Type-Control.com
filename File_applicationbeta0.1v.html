@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="application.css">
+    <title>DATA manager</title>
+</head>
+<style>
+    /* Reset some basic styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.apptitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #0073e6;
+}
+
+/* Form and Buttons */
+.form-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#dynamicForm input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#dynamicForm button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dynamicForm button:hover {
+    background-color: #005bb5;
+}
+
+/* Table Styles (make it look like a spreadsheet) */
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #555;
+    font-weight: bold;
+}
+
+table td {
+    background-color: #fafafa;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Selector Styles */
+h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+select, input[type="color"] {
+    padding: 8px;
+    font-size: 1rem;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Add some spacing around the page */
+body {
+    padding: 40px;
+}
+
+/* Remove button styles */
+.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+</style>
+<body>
+
+    <h1 class="apptitle">DATA Manager</h1>
+
+    <div class="form-container">
+        <form id="dynamicForm">
+            <input type="text" id="DATA" name="DATA" placeholder="Insert DATA"/>
+            <button type="button" onclick="addData()">Add Data</button>
+            <button type="button" onclick="saveData()">Save Data</button>
+        </form>
+    </div>
+
+    <h2>Data Table</h2>
+    <div class="table-container">
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>DATA</th>
+                    <th>Actions</th> <!-- Added Actions column for removing data -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Change Text Style</h3>
+    <!-- Text Size Selector -->
+    <label for="textSize">Text Size: </label>
+    <select id="textSize" onchange="changeTextStyle()">
+        <option value="16px">Small</option>
+        <option value="20px">Medium</option>
+        <option value="24px">Large</option>
+    </select>
+
+    <!-- Text Color Selector -->
+    <label for="textColor">Text Color: </label>
+    <input type="color" id="textColor" onchange="changeTextStyle()"/>
+
+    <h4>*warning:Save data before changing color or text size.</h4>
+    
+    <h6>©Type-Control 2025.</h6>
+    <h6>All rights reserved.</h6>
+
+    <!-- JavaScript -->
+    <script>// Array to hold the data
+        let dataArray = [];
+        
+        // Load saved data from localStorage
+        function loadData() {
+            const savedData = localStorage.getItem('data');
+            if (savedData) {
+                dataArray = JSON.parse(savedData);
+                displayData();
+            }
+        }
+        
+        // Function to add data to the table and array
+        function addData() {
+            const dataInput = document.getElementById('DATA').value;
+            if (dataInput) {
+                dataArray.push(dataInput);
+                displayData();
+                document.getElementById('DATA').value = ''; // Clear input field
+            }
+        }
+        
+        // Function to display data in table format
+        function displayData() {
+            const tableBody = document.querySelector('#dataTable tbody');
+            tableBody.innerHTML = ''; // Clear current table rows
+        
+            dataArray.forEach((data, index) => {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.textContent = data;
+                row.appendChild(cell);
+        
+                // Create a "Remove" button for each row
+                const removeCell = document.createElement('td');
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.classList.add('remove-btn');
+                removeButton.onclick = function() {
+                    removeData(index);
+                };
+                removeCell.appendChild(removeButton);
+                row.appendChild(removeCell);
+        
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Function to save data to localStorage
+        function saveData() {
+            localStorage.setItem('data', JSON.stringify(dataArray));
+        }
+        
+        // Function to remove data from the table and array
+        function removeData(index) {
+            dataArray.splice(index, 1); // Remove the item from the array
+            saveData(); // Save the updated data to localStorage
+            displayData(); // Update the table display
+        }
+        
+        // Function to change text style (size and color)
+        function changeTextStyle() {
+            const textSize = document.getElementById('textSize').value;
+            const textColor = document.getElementById('textColor').value;
+        
+            // Apply the selected styles to the table
+            const tableCells = document.querySelectorAll('#dataTable td');
+            tableCells.forEach(cell => {
+                cell.style.fontSize = textSize;
+                cell.style.color = textColor;
+            });
+        }
+        
+        // Load data when the page is loaded
+        window.onload = loadData;
+        
+        // Add beforeunload event to warn user before refreshing
+        window.onbeforeunload = function () {
+            if (dataArray.length > 0) {
+                return "You have unsaved data. Are you sure you want to leave without saving?";
+            }
+        };</script>
+
+</body>
+</html>
